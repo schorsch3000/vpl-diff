@@ -2,14 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>
+    // Applied before the stylesheet loads, so the page never flashes the
+    // wrong theme. No entry (or "system") means: follow the OS preference,
+    // handled entirely in CSS via prefers-color-scheme.
+    (function () {
+      try {
+        var t = localStorage.getItem('vpl-diff:theme');
+        if (t === 'light' || t === 'dark') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VPL Diff — compare C64 VICE palettes</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="topbar">
-    <h1>VPL&nbsp;Diff</h1>
-    <p class="tagline">Compare C64 palette files (VICE&nbsp;<code>.vpl</code>) side by side.</p>
+    <div class="topbar-row">
+      <div>
+        <h1>VPL&nbsp;Diff</h1>
+        <p class="tagline">Compare C64 palette files (VICE&nbsp;<code>.vpl</code>) side by side.</p>
+      </div>
+      <button id="theme-toggle" class="theme-toggle" type="button"></button>
+    </div>
   </header>
 
   <main>

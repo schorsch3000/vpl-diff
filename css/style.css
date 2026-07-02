@@ -1,3 +1,9 @@
+/* ---- theme ----
+ * Default (no data-theme attribute) follows the OS preference via the
+ * media query below. Explicit data-theme="light"/"dark" (set by the theme
+ * toggle, js/theme.js) overrides it thanks to the higher selector
+ * specificity of the attribute selectors.
+ */
 :root {
   --bg: #16151f;
   --panel: #211f2e;
@@ -10,8 +16,64 @@
   --danger: #ff6b81;
   --ok: #5ad18a;
   --diff: #ffcf5c;
+  --overlay-soft: rgba(255, 255, 255, 0.08);
+  --overlay-border: rgba(255, 255, 255, 0.12);
+  --stripe: rgba(255, 255, 255, 0.02);
   --radius: 10px;
   font-size: 15px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f5f4fa;
+    --panel: #ffffff;
+    --panel-2: #ece9f7;
+    --line: #d9d6e6;
+    --text: #201f2b;
+    --muted: #625f77;
+    --accent: #5b48d6;
+    --accent-2: #1c8b92;
+    --danger: #d63754;
+    --ok: #1f9d5c;
+    --diff: #b8790a;
+    --overlay-soft: rgba(0, 0, 0, 0.06);
+    --overlay-border: rgba(0, 0, 0, 0.15);
+    --stripe: rgba(0, 0, 0, 0.03);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #16151f;
+  --panel: #211f2e;
+  --panel-2: #2a2840;
+  --line: #3a3752;
+  --text: #e8e6f0;
+  --muted: #9b98b5;
+  --accent: #7d6cff;
+  --accent-2: #55c2c9;
+  --danger: #ff6b81;
+  --ok: #5ad18a;
+  --diff: #ffcf5c;
+  --overlay-soft: rgba(255, 255, 255, 0.08);
+  --overlay-border: rgba(255, 255, 255, 0.12);
+  --stripe: rgba(255, 255, 255, 0.02);
+}
+
+:root[data-theme="light"] {
+  --bg: #f5f4fa;
+  --panel: #ffffff;
+  --panel-2: #ece9f7;
+  --line: #d9d6e6;
+  --text: #201f2b;
+  --muted: #625f77;
+  --accent: #5b48d6;
+  --accent-2: #1c8b92;
+  --danger: #d63754;
+  --ok: #1f9d5c;
+  --diff: #b8790a;
+  --overlay-soft: rgba(0, 0, 0, 0.06);
+  --overlay-border: rgba(0, 0, 0, 0.15);
+  --stripe: rgba(0, 0, 0, 0.03);
 }
 
 * { box-sizing: border-box; }
@@ -26,7 +88,7 @@ body {
 
 code {
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--overlay-soft);
   padding: 0 0.25em;
   border-radius: 4px;
 }
@@ -35,6 +97,12 @@ code {
   padding: 1.2rem 1.5rem 0.8rem;
   border-bottom: 1px solid var(--line);
   background: linear-gradient(180deg, var(--panel-2), var(--panel));
+}
+.topbar-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
 }
 .topbar h1 {
   margin: 0;
@@ -46,6 +114,21 @@ code {
   color: transparent;
 }
 .tagline { margin: 0.2rem 0 0; color: var(--muted); }
+
+.theme-toggle {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.theme-toggle:hover, .theme-toggle:focus-visible { border-color: var(--accent); outline: none; }
 
 main {
   max-width: 1200px;
@@ -225,7 +308,7 @@ tr.row-diff th.idx { border-left: 3px solid var(--diff); }
   height: 40px;
   min-width: 56px;
   border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--overlay-border);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -247,7 +330,7 @@ tr.row-diff th.idx { border-left: 3px solid var(--diff); }
 .swatch-cell.missing { color: var(--muted); }
 
 tbody tr:nth-child(even) td, tbody tr:nth-child(even) th.idx {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--stripe);
 }
 
 tfoot td, tfoot th {

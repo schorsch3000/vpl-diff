@@ -10,6 +10,7 @@ import {
   addUserPalette,
   removeUserPalette,
 } from './store.js';
+import { initTheme } from './theme.js';
 
 // ---------------------------------------------------------------------------
 // State
@@ -39,6 +40,7 @@ const els = {
   showHex: document.getElementById('toggle-hex'),
   showDiffOnly: document.getElementById('toggle-diff-only'),
   status: document.getElementById('status'),
+  themeToggle: document.getElementById('theme-toggle'),
 };
 
 // ---------------------------------------------------------------------------
@@ -437,6 +439,7 @@ function wireEvents() {
 }
 
 async function init() {
+  initTheme(els.themeToggle);
   wireEvents();
   loadStoredUserPalettes();
   render();
