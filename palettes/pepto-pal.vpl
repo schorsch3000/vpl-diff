@@ -1,0 +1,23 @@
+# VICE Palette file
+#
+# Pepto PAL C64 palette by pepto
+#
+# Syntax:
+# Red Green Blue Dither
+#
+00 00 00 0	# Black
+ff ff ff f	# White
+68 37 2b 8	# Red
+70 a4 b2 a	# Cyan
+6f 3d 86 8	# Purple
+58 8d 43 a	# Green
+35 28 79 6	# Blue
+b8 c7 6f c	# Yellow
+6f 4f 25 8	# Orange
+43 39 00 6	# Brown
+9a 67 59 a	# Light Red
+44 44 44 6	# Dark Grey
+6c 6c 6c 8	# Grey
+9a d2 84 c	# Light Green
+6c 5e b5 a	# Light Blue
+95 95 95 c	# Light Grey

@@ -1,0 +1,23 @@
+# VICE Palette file
+#
+# Colodore C64 palette by pepto (www.colodore.com)
+#
+# Syntax:
+# Red Green Blue Dither
+#
+00 00 00 0	# Black
+ff ff ff f	# White
+81 33 38 8	# Red
+75 ce c8 a	# Cyan
+8e 3c 97 8	# Purple
+56 ac 4d a	# Green
+2e 2c 9b 6	# Blue
+ed f1 71 c	# Yellow
+8e 50 29 8	# Orange
+55 38 00 6	# Brown
+c4 6c 71 a	# Light Red
+4a 4a 4a 6	# Dark Grey
+7b 7b 7b 8	# Grey
+a9 ff 9f c	# Light Green
+70 6d eb a	# Light Blue
+b2 b2 b2 c	# Light Grey

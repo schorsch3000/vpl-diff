@@ -1,0 +1,23 @@
+# VICE Palette file
+#
+# Grayscale demo palette (luminance of the standard C64 colors)
+#
+# Syntax:
+# Red Green Blue Dither
+#
+00 00 00 0	# Black
+ff ff ff f	# White
+3c 3c 3c 8	# Red
+95 95 95 a	# Cyan
+4e 4e 4e 8	# Purple
+73 73 73 a	# Green
+2d 2d 2d 6	# Blue
+c3 c3 c3 c	# Yellow
+55 55 55 8	# Orange
+3a 3a 3a 6	# Brown
+6f 6f 6f a	# Light Red
+44 44 44 6	# Dark Grey
+6c 6c 6c 8	# Grey
+be be be c	# Light Green
+6b 6b 6b a	# Light Blue
+95 95 95 c	# Light Grey
